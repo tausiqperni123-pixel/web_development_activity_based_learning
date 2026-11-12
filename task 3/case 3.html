@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Community Service Project</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f4f7f6;
+            color: #333;
+        }
+
+        header {
+            background: #14532d;
+            color: white;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            color: #a3e635;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #a3e635;
+        }
+
+        .hero {
+            background: linear-gradient(120deg, #14532d, #16a34a);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            animation: fade 1.5s;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #a3e635;
+            color: #14532d;
+            padding: 13px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: white;
+        }
+
+        .container {
+            padding: 55px 8%;
+        }
+
+        .title {
+            text-align: center;
+            color: #14532d;
+            font-size: 32px;
+            margin-bottom: 35px;
+        }
+
+        .about {
+            background: white;
+            padding: 30px;
+            text-align: center;
+            line-height: 2;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card h3 {
+            color: #15803d;
+            margin-bottom: 15px;
+        }
+
+        .activities {
+            background: #e8f5e9;
+        }
+
+        .stages {
+            border-left: 5px solid #16a34a;
+            padding: 20px;
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .stages h3 {
+            color: #14532d;
+            margin-bottom: 10px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: 0.4s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.04);
+        }
+
+        .report {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #16a34a;
+            margin-bottom: 20px;
+            line-height: 2;
+        }
+
+        .volunteers {
+            background: #e8f5e9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background: #14532d;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f0fdf4;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .timeline-item {
+            padding: 20px;
+            background: white;
+            border-left: 5px solid #16a34a;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+        }
+
+        .timeline-item h3 {
+            color: #15803d;
+            margin-bottom: 10px;
+        }
+
+        .outcomes {
+            background: #14532d;
+            color: white;
+            text-align: center;
+            padding: 50px 8%;
+        }
+
+        .outcomes h2 {
+            margin-bottom: 25px;
+            font-size: 32px;
+        }
+
+        .outcome-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .outcome {
+            background: #166534;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .contact {
+            background: white;
+            text-align: center;
+            padding: 40px;
+            line-height: 2;
+        }
+
+        footer {
+            background: #052e16;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media(max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                text-align: center;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 7px;
+            }
+
+            .hero h2 {
+                font-size: 30px;
+            }
+
+            .container {
+                padding: 40px 5%;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Community Care</h1>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#objectives">Objectives</a>
+        <a href="#activities">Activities</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h2>Community Service Project</h2>
+    <p>Helping People, Building Communities, Creating a Better Future.</p>
+    <a href="#about" class="btn">Explore Project</a>
+</section>
+
+<section class="container" id="about">
+    <h2 class="title">About Our Project</h2>
+
+    <div class="about">
+        <p>
+            Our Community Service Project focuses on improving
+            society through social awareness, cleanliness,
+            environmental protection and helping people in need.
+            Our volunteers work together to create a clean,
+            healthy and educated community.
+        </p>
+    </div>
+</section>
+
+<section class="container" id="objectives">
+    <h2 class="title">Project Objectives</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Clean Environment</h3>
+            <p>Promote cleanliness and maintain a healthy environment.</p>
+        </div>
+
+        <div class="card">
+            <h3>Education Awareness</h3>
+            <p>Encourage education and support students.</p>
+        </div>
+
+        <div class="card">
+            <h3>Health Awareness</h3>
+            <p>Create awareness about hygiene and good health.</p>
+        </div>
+
+        <div class="card">
+            <h3>Social Responsibility</h3>
+            <p>Develop teamwork and responsibility among students.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="container activities" id="activities">
+    <h2 class="title">Community Activities</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Cleanliness Drive</h3>
+            <p>Cleaning public places and removing waste.</p>
+        </div>
+
+        <div class="card">
+            <h3>Tree Plantation</h3>
+            <p>Planting trees to protect the environment.</p>
+        </div>
+
+        <div class="card">
+            <h3>Health Campaign</h3>
+            <p>Creating awareness about personal hygiene.</p>
+        </div>
+
+        <div class="card">
+            <h3>Education Support</h3>
+            <p>Helping children improve their learning skills.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="container">
+    <h2 class="title">Implementation Stages</h2>
+
+    <div class="stages">
+        <h3>Stage 1: Planning</h3>
+        <p>Identify community problems and prepare a project plan.</p>
+    </div>
+
+    <div class="stages">
+        <h3>Stage 2: Survey</h3>
+        <p>Visit the community and collect information.</p>
+    </div>
+
+    <div class="stages">
+        <h3>Stage 3: Implementation</h3>
+        <p>Conduct awareness programs and community activities.</p>
+    </div>
+
+    <div class="stages">
+        <h3>Stage 4: Evaluation</h3>
+        <p>Review activities and measure project results.</p>
+    </div>
+
+</section>
+
+<section class="container" id="gallery">
+    <h2 class="title">Project Photographs</h2>
+
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600" alt="Community cleaning activity">
+
+        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600" alt="Tree plantation">
+
+        <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600" alt="Education activity">
+
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600" alt="Health awareness">
+    </div>
+</section>
+
+<section class="container">
+    <h2 class="title">Weekly Reports</h2>
+
+    <div class="report">
+        <h3>Week 1 - Community Survey</h3>
+        <p>Visited the community and identified important social problems.</p>
+    </div>
+
+    <div class="report">
+        <h3>Week 2 - Awareness Campaign</h3>
+        <p>Conducted awareness programs about cleanliness and health.</p>
+    </div>
+
+    <div class="report">
+        <h3>Week 3 - Plantation Activity</h3>
+        <p>Organized tree plantation and environmental activities.</p>
+    </div>
+
+    <div class="report">
+        <h3>Week 4 - Project Evaluation</h3>
+        <p>Collected feedback and reviewed the project outcomes.</p>
+    </div>
+</section>
+
+<section class="container volunteers">
+    <h2 class="title">Volunteer Details</h2>
+
+    <table>
+        <tr>
+            <th>S.No</th>
+            <th>Volunteer Name</th>
+            <th>Role</th>
+            <th>Responsibility</th>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>Student 1</td>
+            <td>Team Leader</td>
+            <td>Project Management</td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>Student 2</td>
+            <td>Volunteer</td>
+            <td>Community Survey</td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td>Student 3</td>
+            <td>Volunteer</td>
+            <td>Awareness Campaign</td>
+        </tr>
+
+        <tr>
+            <td>4</td>
+            <td>Student 4</td>
+            <td>Volunteer</td>
+            <td>Activity Coordination</td>
+        </tr>
+    </table>
+</section>
+
+<section class="container">
+    <h2 class="title">Project Timeline</h2>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <h3>Week 1</h3>
+            <p>Project Planning and Community Survey.</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>Week 2</h3>
+            <p>Community Awareness Programs.</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>Week 3</h3>
+            <p>Social Service and Environmental Activities.</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>Week 4</h3>
+            <p>Feedback Collection and Final Evaluation.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="outcomes">
+    <h2>Project Outcomes</h2>
+
+    <div class="outcome-list">
+
+        <div class="outcome">
+            <h3>Clean Society</h3>
+            <p>Improved cleanliness awareness.</p>
+        </div>
+
+        <div class="outcome">
+            <h3>Green Environment</h3>
+            <p>Encouraged environmental protection.</p>
+        </div>
+
+        <div class="outcome">
+            <h3>Social Awareness</h3>
+            <p>Increased community participation.</p>
+        </div>
+
+        <div class="outcome">
+            <h3>Teamwork</h3>
+            <p>Developed leadership and cooperation.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2 class="title">Contact Us</h2>
+
+    <p>Community Service Project Team</p>
+    <p>College: RVR NRI Institute of Technology</p>
+    <p>Department: Computer Science Engineering</p>
+    <p>Email: communityservice@gmail.com</p>
+    <p>Location: Andhra Pradesh, India</p>
+</section>
+
+<footer>
+    <p>© 2026 Community Care. All Rights Reserved.</p>
+    <p>Working Together for a Better Society.</p>
+</footer>
+
+</body>
+</html>
