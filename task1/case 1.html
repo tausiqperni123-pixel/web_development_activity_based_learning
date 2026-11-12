@@ -1,0 +1,409 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dream Home - Real Estate</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial;
+            background-color: #f4f6f9;
+        }
+
+        header {
+            background-color: #173b57;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            color: #ffcc66;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-size: 17px;
+        }
+
+        .hero {
+            background: linear-gradient(90deg, #173b57, #397b9c);
+            color: white;
+            text-align: center;
+            padding: 65px 20px;
+        }
+
+        .hero h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        .search-box {
+            background-color: white;
+            padding: 25px;
+            margin: 25px auto;
+            width: 90%;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px #ccc;
+        }
+
+        .search-box h2 {
+            margin-bottom: 15px;
+            color: #173b57;
+        }
+
+        .search-box input,
+        .search-box select {
+            padding: 12px;
+            margin: 8px;
+            width: 22%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 35px;
+            color: #173b57;
+            font-size: 30px;
+        }
+
+        .property-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: white;
+            width: 310px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px #ccc;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 18px;
+        }
+
+        .card-content h3 {
+            color: #173b57;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #e67e22;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 12px 0;
+        }
+
+        .details {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .card button {
+            width: 100%;
+            margin-top: 12px;
+        }
+
+        .comparison {
+            width: 90%;
+            margin: 30px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #173b57;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .contact {
+            background-color: #173b57;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin-top: 40px;
+        }
+
+        .contact h2 {
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: #102b40;
+            color: white;
+            text-align: center;
+            padding: 18px;
+        }
+
+        @media(max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 7px;
+            }
+
+            .search-box input,
+            .search-box select {
+                width: 100%;
+                margin: 8px 0;
+            }
+
+            .card {
+                width: 90%;
+            }
+
+            .comparison {
+                overflow-x: auto;
+            }
+
+            table {
+                min-width: 600px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Dream Home</h1>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#properties">Properties</a>
+            <a href="#compare">Compare</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h2>Find Your Dream Property</h2>
+        <p>Discover the best houses, apartments and rental properties.</p>
+    </section>
+
+    <section class="search-box">
+        <h2>Search Properties</h2>
+
+        <input type="text" placeholder="Enter Location">
+
+        <select>
+            <option>Property Type</option>
+            <option>House</option>
+            <option>Apartment</option>
+            <option>Rental</option>
+        </select>
+
+        <select>
+            <option>Price Range</option>
+            <option>Below 30 Lakhs</option>
+            <option>30 - 50 Lakhs</option>
+            <option>50 - 80 Lakhs</option>
+            <option>Above 80 Lakhs</option>
+        </select>
+
+        <select>
+            <option>Bedrooms</option>
+            <option>1 BHK</option>
+            <option>2 BHK</option>
+            <option>3 BHK</option>
+            <option>4 BHK</option>
+        </select>
+
+        <button>Search</button>
+    </section>
+
+    <h2 class="section-title" id="properties">Featured Properties</h2>
+
+    <div class="property-container">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600">
+
+            <div class="card-content">
+                <h3>Luxury Independent House</h3>
+                <p class="price">₹85 Lakhs</p>
+                <p class="details">
+                    Location: Vijayawada<br>
+                    Type: Independent House<br>
+                    Bedrooms: 3 BHK<br>
+                    Bathrooms: 3<br>
+                    Area: 1800 Sq.ft<br>
+                    Amenities: Parking, Garden, Security
+                </p>
+                <button>View Details</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600">
+
+            <div class="card-content">
+                <h3>Modern Apartment</h3>
+                <p class="price">₹55 Lakhs</p>
+                <p class="details">
+                    Location: Hyderabad<br>
+                    Type: Apartment<br>
+                    Bedrooms: 2 BHK<br>
+                    Bathrooms: 2<br>
+                    Area: 1200 Sq.ft<br>
+                    Amenities: Lift, Gym, Swimming Pool
+                </p>
+                <button>View Details</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600">
+
+            <div class="card-content">
+                <h3>Premium Rental House</h3>
+                <p class="price">₹15,000 / Month</p>
+                <p class="details">
+                    Location: Guntur<br>
+                    Type: Rental House<br>
+                    Bedrooms: 2 BHK<br>
+                    Bathrooms: 2<br>
+                    Area: 1100 Sq.ft<br>
+                    Amenities: Parking, Water, Balcony
+                </p>
+                <button>View Details</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600">
+
+            <div class="card-content">
+                <h3>Beautiful Family Villa</h3>
+                <p class="price">₹1.2 Crore</p>
+                <p class="details">
+                    Location: Bengaluru<br>
+                    Type: Villa<br>
+                    Bedrooms: 4 BHK<br>
+                    Bathrooms: 4<br>
+                    Area: 2500 Sq.ft<br>
+                    Amenities: Garden, Pool, Parking
+                </p>
+                <button>View Details</button>
+            </div>
+        </div>
+
+    </div>
+
+    <h2 class="section-title" id="compare">Property Comparison</h2>
+
+    <div class="comparison">
+        <table>
+            <tr>
+                <th>Property</th>
+                <th>Location</th>
+                <th>Type</th>
+                <th>Bedrooms</th>
+                <th>Price</th>
+            </tr>
+
+            <tr>
+                <td>Luxury House</td>
+                <td>Vijayawada</td>
+                <td>House</td>
+                <td>3 BHK</td>
+                <td>85 Lakhs</td>
+            </tr>
+
+            <tr>
+                <td>Modern Apartment</td>
+                <td>Hyderabad</td>
+                <td>Apartment</td>
+                <td>2 BHK</td>
+                <td>55 Lakhs</td>
+            </tr>
+
+            <tr>
+                <td>Rental House</td>
+                <td>Guntur</td>
+                <td>Rental</td>
+                <td>2 BHK</td>
+                <td>15,000 / Month</td>
+            </tr>
+
+            <tr>
+                <td>Family Villa</td>
+                <td>Bengaluru</td>
+                <td>Villa</td>
+                <td>4 BHK</td>
+                <td>1.2 Crore</td>
+            </tr>
+        </table>
+    </div>
+
+    <section class="contact" id="contact">
+        <h2>Find Your Perfect Home Today!</h2>
+        <p>Contact us for more property details and information.</p>
+        <p>Email: dreamhome@gmail.com</p>
+        <p>Phone: +91 9876543210</p>
+        <br>
+        <button>Contact Us</button>
+    </section>
+
+    <footer>
+        <p>© 2026 Dream Home Real Estate. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
+```
