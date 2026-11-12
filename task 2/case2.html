@@ -1,178 +1,384 @@
-```html
 <!DOCTYPE html>
 <html>
 <head>
-    <title>TechConnect 2026 - Conference</title>
+<title>Dream Homes</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f7fc;
-            color: #26344a;
-        }
+body {
+    background: #f4f6f9;
+    color: #333;
+}
 
-        header {
-            background-color: #172554;
-            color: white;
-            padding: 20px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+header {
+    background: #123c69;
+    color: white;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        header h1 {
-            color: #60a5fa;
-            font-size: 27px;
-        }
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 22px;
-            font-size: 15px;
-        }
+.hero {
+    background: linear-gradient(120deg, #123c69, #3985b9);
+    text-align: center;
+    padding: 80px 20px;
+    color: white;
+}
 
-        nav a:hover {
-            color: #60a5fa;
-        }
+.hero h2 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
 
-        .hero {
-            background: linear-gradient(120deg, #172554, #2563a6);
-            color: white;
-            text-align: center;
-            padding: 90px 20px;
-        }
+.search-box {
+    background: white;
+    padding: 20px;
+    max-width: 950px;
+    margin: 25px auto 0;
+    display: flex;
+    gap: 12px;
+    border-radius: 10px;
+    flex-wrap: wrap;
+}
 
-        .hero h2 {
-            font-size: 42px;
-            margin-bottom: 18px;
-        }
+.search-box input,
+.search-box select {
+    flex: 1;
+    min-width: 150px;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
-        .hero p {
-            font-size: 18px;
-            line-height: 1.8;
-            margin-bottom: 25px;
-        }
+button {
+    background: #f4a261;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-        .hero button {
-            padding: 14px 28px;
-            background-color: #f59e0b;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-        }
+.container {
+    padding: 45px 8%;
+}
 
-        .event-info {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            background-color: white;
-            padding: 25px;
-            flex-wrap: wrap;
-            box-shadow: 0 3px 10px #ddd;
-        }
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    color: #123c69;
+    margin-bottom: 30px;
+}
 
-        .event-info div {
-            text-align: center;
-        }
+.properties {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
 
-        .event-info h3 {
-            color: #2563a6;
-            margin-bottom: 8px;
-        }
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
 
-        .section-title {
-            text-align: center;
-            margin: 45px 0 15px;
-            font-size: 30px;
-            color: #172554;
-        }
+.card:hover {
+    transform: translateY(-5px);
+}
 
-        .section-description {
-            text-align: center;
-            color: #718096;
-            margin-bottom: 30px;
-        }
+.card h3 {
+    color: #123c69;
+    margin-bottom: 12px;
+}
 
-        .themes {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-            padding: 20px 7%;
-        }
+.price {
+    color: #e76f51;
+    font-size: 23px;
+    font-weight: bold;
+    margin: 15px 0;
+}
 
-        .theme-card {
-            background-color: white;
-            padding: 30px;
-            text-align: center;
-            border-radius: 12px;
-            box-shadow: 0 3px 12px #ddd;
-        }
+.details {
+    color: #666;
+    line-height: 1.9;
+}
 
-        .theme-card h3 {
-            color: #2563a6;
-            margin-bottom: 15px;
-        }
+.card button {
+    background: #123c69;
+    width: 100%;
+    margin-top: 15px;
+}
 
-        .theme-card p {
-            color: #718096;
-            line-height: 1.7;
-        }
+.card button:hover {
+    background: #f4a261;
+}
 
-        .speakers {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 22px;
-            padding: 20px 7%;
-        }
+.amenities {
+    background: #e8f1fa;
+    padding: 45px 8%;
+    text-align: center;
+}
 
-        .speaker-card {
-            background-color: white;
-            text-align: center;
-            padding-bottom: 22px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 3px 12px #ddd;
-        }
+.amenity-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+}
 
-        .speaker-card img {
-            width: 100%;
-            height: 210px;
-            object-fit: cover;
-        }
+.amenity {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    color: #123c69;
+    font-weight: bold;
+}
 
-        .speaker-card h3 {
-            margin-top: 18px;
-            color: #172554;
-        }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    margin-top: 20px;
+}
 
-        .speaker-card p {
-            color: #718096;
-            margin-top: 8px;
-        }
+th, td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
 
-        .agenda {
-            width: 86%;
-            margin: 30px auto;
-            background-color: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 3px 12px #ddd;
-        }
+th {
+    background: #123c69;
+    color: white;
+}
 
-        .agenda table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+tr:nth-child(even) {
+    background: #f1f5f9;
+}
 
-        .agenda th,
-        .agenda td {
-            padding: 17px
+.contact {
+    background: #123c69;
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.contact h2 {
+    margin-bottom: 15px;
+}
+
+.contact p {
+    line-height: 2;
+}
+
+footer {
+    background: #09233e;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+@media(max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 8px;
+    }
+
+    .hero h2 {
+        font-size: 30px;
+    }
+
+    .container {
+        padding: 35px 5%;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Dream Homes</h1>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#properties">Properties</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h2>Find Your Dream Home</h2>
+    <p>Discover the perfect property for your family.</p>
+
+    <div class="search-box">
+        <input type="text" placeholder="Enter Location">
+
+        <select>
+            <option>Property Type</option>
+            <option>House</option>
+            <option>Apartment</option>
+            <option>Rental</option>
+        </select>
+
+        <select>
+            <option>Price Range</option>
+            <option>Below 50 Lakhs</option>
+            <option>50 Lakhs - 1 Crore</option>
+            <option>Above 1 Crore</option>
+        </select>
+
+        <button type="button">Search</button>
+    </div>
+</section>
+
+<section class="container" id="properties">
+
+    <h2 class="section-title">Featured Properties</h2>
+
+    <div class="properties">
+
+        <div class="card">
+            <h3>Luxury Family House</h3>
+            <p class="details">Location: Hyderabad</p>
+            <p class="price">₹85 Lakhs</p>
+            <p class="details">3 Bedrooms | 2 Bathrooms</p>
+            <p class="details">Garden | Parking | Swimming Pool</p>
+            <button type="button">View Details</button>
+        </div>
+
+        <div class="card">
+            <h3>Modern Apartment</h3>
+            <p class="details">Location: Vijayawada</p>
+            <p class="price">₹55 Lakhs</p>
+            <p class="details">2 Bedrooms | 2 Bathrooms</p>
+            <p class="details">Lift | Gym | Security</p>
+            <button type="button">View Details</button>
+        </div>
+
+        <div class="card">
+            <h3>Premium Villa</h3>
+            <p class="details">Location: Guntur</p>
+            <p class="price">₹1.2 Crore</p>
+            <p class="details">4 Bedrooms | 3 Bathrooms</p>
+            <p class="details">Garden | Parking | Balcony</p>
+            <button type="button">View Details</button>
+        </div>
+
+        <div class="card">
+            <h3>Beautiful Rental Flat</h3>
+            <p class="details">Location: Bengaluru</p>
+            <p class="price">₹18,000 / Month</p>
+            <p class="details">2 Bedrooms | 1 Bathroom</p>
+            <p class="details">Furnished | Parking | Security</p>
+            <button type="button">View Details</button>
+        </div>
+
+    </div>
+</section>
+
+<section class="amenities" id="amenities">
+
+    <h2 class="section-title">Property Amenities</h2>
+
+    <div class="amenity-list">
+        <div class="amenity">Parking</div>
+        <div class="amenity">Swimming Pool</div>
+        <div class="amenity">Gym</div>
+        <div class="amenity">24/7 Security</div>
+        <div class="amenity">Garden</div>
+        <div class="amenity">Lift Facility</div>
+    </div>
+
+</section>
+
+<section class="container">
+
+    <h2 class="section-title">Compare Properties</h2>
+
+    <table>
+        <tr>
+            <th>Property</th>
+            <th>Location</th>
+            <th>Bedrooms</th>
+            <th>Price</th>
+            <th>Type</th>
+        </tr>
+
+        <tr>
+            <td>Family House</td>
+            <td>Hyderabad</td>
+            <td>3</td>
+            <td>85 Lakhs</td>
+            <td>Sale</td>
+        </tr>
+
+        <tr>
+            <td>Modern Apartment</td>
+            <td>Vijayawada</td>
+            <td>2</td>
+            <td>55 Lakhs</td>
+            <td>Sale</td>
+        </tr>
+
+        <tr>
+            <td>Premium Villa</td>
+            <td>Guntur</td>
+            <td>4</td>
+            <td>1.2 Crore</td>
+            <td>Sale</td>
+        </tr>
+
+        <tr>
+            <td>Rental Flat</td>
+            <td>Bengaluru</td>
+            <td>2</td>
+            <td>18,000 / Month</td>
+            <td>Rent</td>
+        </tr>
+    </table>
+
+</section>
+
+<section class="contact" id="contact">
+
+    <h2>Contact Dream Homes</h2>
+    <p>Find your perfect property with us.</p>
+    <p>Email: info@dreamhomes.com</p>
+    <p>Phone: +91 9876543210</p>
+    <p>Location: Andhra Pradesh, India</p>
+
+</section>
+
+<footer>
+    <p>© 2026 Dream Homes. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
